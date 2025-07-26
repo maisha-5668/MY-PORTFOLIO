@@ -1,0 +1,823 @@
+/* Basic Reset & Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base Body Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8;
+}
+
+/* Container for Centering Content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Headings */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #400000; /* Dark Crimson */
+    margin-bottom: 0.8em;
+}
+
+h1 {
+    font-size: 3em;
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 2.2em;
+}
+
+h3 {
+    font-size: 1.6em;
+}
+
+/* Links */
+a {
+    color: #a41034; /* Harvard Crimson */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #7a0c28; /* Darker Crimson */
+}
+
+.btn {
+    display: inline-block;
+    background-color: #a41034; /* Harvard Crimson */
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+    
+}
+
+.btn:hover {
+    background-color: #7a0c28;
+}
+
+.link-more {
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+/* --- Header --- */ 
+.main-header {
+    background-color: #fff;
+    padding: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 90px;
+    width: 100vw; /* Make full width */
+    margin: 0 auto; /* Remove any default margin */
+}
+
+/* ⬇️ Make header content take full width and center nicely */
+.header-content {
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    max-width: 100%; /* prevent any max-width constraint */
+    padding: 0 0; /* Remove side padding */
+}
+
+/* ⬅️ Align Harvard logo all the way left */
+.logo-and-alert {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-left: 0; /* No left margin */
+}
+
+/* Clean up padding to remove left spacing */
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 0 40px; /* Reduced padding */
+    height: 100%;
+}
+
+.logo .harvard-crest {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo a {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9em;
+    font-weight: 700;
+    color: #400000;
+    line-height: 1.2;
+}
+
+/* 🟥 Alert text stays centered between left and right items */
+.alert-message {
+    font-size: 0.75em;
+    color: #000000;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+/* ➡️ Align nav items to the right edge */
+.main-nav {
+    height: 100%;
+    margin-right: 0; /* No right margin */
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: 0; /* No right margin */
+}
+
+.nav-icons button {
+    background-color: #000000;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    color: #fff;
+    padding: 0 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.nav-icons button:hover {
+    background-color: #000;
+}
+
+.nav-icons button svg {
+    width: 28px;
+    height: 28px;
+    fill: #fff;
+    margin-right: 8px;
+}
+
+.menu-toggle {
+    border-left: 1px solid rgba(255,255,255,0.1);
+}
+
+
+
+/* Mobile Menu */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Off-screen by default */
+    width: 100%;
+    max-width: 2000px;
+    height: 100%;
+    background-color: #000; /* Black background for menu */
+    color: #fff;
+    padding: 30px 0; /* Adjusted padding */
+    box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+    transition: left 0.3s ease-in-out;
+    z-index: 1100;
+    overflow-y: auto;
+}
+
+.mobile-menu.active {
+    left: 0;
+}
+
+.close-btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    margin-bottom: 30px;
+}
+
+.mobile-menu-logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.mobile-menu-logo .harvard-crest {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    filter: invert(1); /* Make crest white if it's red */
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.1em; /* Smaller font for close button text */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.close-btn:hover {
+    opacity: 1;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px; /* Space between main and quick links */
+}
+
+.mobile-menu ul li {
+    margin-bottom: 0; /* No bottom margin on list items */
+}
+
+.mobile-menu ul li a {
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+    font-size: 3.5em; /* Larger font for main menu items */
+    display: block;
+    padding: 10px 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: background-color 0.2s ease;
+}
+
+.mobile-menu ul li a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.quick-links-mobile {
+    margin-top: 20px;
+}
+
+.quick-links-mobile li a {
+    font-size: 1em; /* Smaller font for quick links */
+    padding: 8px 30px;
+    border-bottom: none; /* No border for quick links */
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    color: #fff; /* All text in hero section will be white */
+    text-align: center;
+    padding: 150px 20px;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    /* Animation styles */
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Start slightly below */
+    animation: fadeInUp 1s ease-out forwards; /* Apply animation */
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content h1 {
+    color: #fff; /* Ensure heading is white */
+    font-size: 4em;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    color: #fff; /* Ensure paragraph is white */
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Quick Links Bar - Removed from main layout, now only in mobile menu */
+.quick-links-bar {
+    display: none;
+}
+
+
+.content-blocks {
+    padding: 60px 20px;
+    background-color: #f8f8f8;
+}
+
+.content-blocks h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #000000; /* Dark Crimson */
+}
+.content-blocks .grid-2-col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+}
+
+.block1 {
+    padding: 30px;
+}
+.block1 img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+.block2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 20px 40px;
+    margin: 10px 0;
+    justify-content: center;
+    box-sizing: border-box; /* Include padding in the element's total width/height */
+    height: 100%;
+
+}
+.block2 h1 {
+    text-align: left;
+    font-size: 3.0em;
+    color: #000000; /* Dark Crimson */
+    margin-bottom: 10px;
+}
+.block2 p {
+    font-size: 1.3em;
+    line-height: 1.6;
+    color: #000000;
+}    
+
+
+/* Skills Section */
+.skills-section {
+    padding: 60px 20px;
+    background-color: #000000; /* Black background for the entire section */
+    text-align: center;
+}
+
+.skills-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #fff; /* White color for the heading */
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Space between the cards */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skill-item {
+    background-color: #1a1a1a; /* Darker grey for the containers */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+    overflow: hidden; /* Ensures image corners are rounded */
+    text-align: left; /* Align text within card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.skill-item img {
+    width: 100%;
+    height: 200px; /* Fixed height for images */
+    object-fit: cover; /* Crop images to fit */
+    border-bottom: 1px solid #333; /* Slightly lighter border */
+}
+
+.skill-text {
+    padding: 20px;
+}
+
+.skill-text h2 {
+    font-size: 1.5em;
+    color: #fff; /* White color for skill titles */
+    margin-bottom: 10px;
+}
+
+.skill-text p {
+    font-size: 1em;
+    color: #ccc; /* Lighter grey for skill descriptions */
+    line-height: 1.5;
+}
+
+
+/* Project Section Styles */
+.projects {
+    padding: 60px 20px;
+    background-color: #f8f8f8;
+}
+
+.projects h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #000000; /* Dark Crimson */
+}
+
+/* New Project Grid Styling - Changed to stack items vertically */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Ensures projects stack one below the other */
+    gap: 30px; /* Space between each project item */
+    max-width: 1000px; /* Max width for the grid */
+    margin: 0 auto; /* Center the grid */
+}
+
+.project-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
+    display: flex; /* Use flexbox for image and info within a project item */
+    overflow: hidden; /* Ensures border-radius applies to image */
+}
+
+.project-item:nth-child(odd) { /* Project 1: Image on left, text on right */
+    flex-direction: row; 
+}
+
+.project-item:nth-child(even) { /* Project 2: Text on left, image on right */
+    flex-direction: row; /* Changed from row-reverse to row to achieve text-left, image-right with HTML order */
+}
+
+.project-image {
+    flex: 1; /* Takes up half space */
+    min-width: 200px; /* Minimum width for the image container */
+    /* Ensure image container has consistent height if needed, or let content define */
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the area, crop if necessary */
+    display: block;
+    border-radius: 8px 0 0 8px; /* Rounded only on the side where it's not touching text for Project 1 */
+}
+
+.project-item:nth-child(even) .project-image img {
+    border-radius: 0 8px 8px 0; /* Rounded only on the right side for Project 2 */
+}
+
+.project-info {
+    flex: 1; /* Takes up half space */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+}
+
+.project-info h2 {
+    font-size: 1.8em;
+    color: #400000; /* Dark Crimson */
+    margin-bottom: 15px;
+}
+
+.project-info p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.project-link {
+    display: inline-flex; /* Use flex to align icon and text */
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.project-link .icon-circle {
+    width: 30px; /* Smaller circle for project links */
+    height: 30px;
+    margin-right: 10px;
+    background-color: #a41034; /* Harvard Crimson */
+    transition: background-color 0.3s ease;
+}
+
+.project-link .icon-circle .icon-arrow {
+    background-color: #fff; /* White arrow */
+}
+
+.project-link .icon-circle .icon-arrow::after {
+    border-left-color: #fff; /* White arrow head */
+}
+
+.project-link:hover .icon-circle {
+    background-color: #7a0c28; /* Darker Crimson on hover */
+}
+
+.project-link .button-text {
+    color: #a41034; /* Harvard Crimson */
+    font-size: 1em;
+}
+
+.project-link:hover .button-text {
+    color: #7a0c28; /* Darker Crimson on hover */
+    text-decoration: underline;
+}
+
+
+/* --- Contact Section --- */
+.contact {
+    padding: 60px 20px;
+    background-color: #f8f8f8;
+    text-align: center; /* Center align for the entire section */
+}
+
+.contact h1 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #000000;
+}
+
+/* Updated Contact Info Container */
+.contact-info-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between each contact detail */
+}
+
+.contact-detail {
+    display: flex; /* Keep flex for icon and text block */
+    align-items: flex-start; /* Align icon to the top of text */
+    gap: 15px; /* Space between icon and text block */
+    text-align: left; /* Align text within each detail */
+}
+
+.contact-icon {
+    font-size: 1.8em; /* Size of the emojis */
+    color: #a41034; /* Harvard Crimson color for icons */
+    line-height: 1; /* Ensure icon doesn't add extra line height */
+    flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.contact-text {
+    display: flex;
+    flex-direction: column; /* Stack label and value vertically */
+    gap: 5px; /* Small space between label and value */
+}
+
+.contact-label {
+    font-size: 1.1em;
+    color: #400000; /* Darker color for labels */
+    font-weight: bold;
+    margin: 0; /* Remove default paragraph margin */
+}
+
+.contact-value {
+    font-size: 1.0em;
+    color: #555;
+    margin: 0; /* Remove default paragraph margin */
+}
+
+
+/* --- Footer --- */
+.main-footer {
+    background-color: #000000; /* Dark Crimson */
+    color: #fff;
+    padding: 60px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-section h4 {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    color: #f0f0f0;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    font-size: 0.95em;
+}
+
+.footer-section ul li a:hover {
+    color: #fff;
+}
+
+.copyright-social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 30px;
+}
+
+.footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #fff;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a img {
+    width: 64px;
+    height: 64px;
+    filter: brightness(0) invert(1); /* Makes SVG icons white */
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.social-links a img:hover {
+    opacity: 1;
+}
+
+.copyright {
+    font-size: 1.0em;
+    color: #ccc;
+    margin-top: 10px; /* For smaller screens */
+}
+
+.blank-section {
+    height: 100px;  /* or any height you need */
+    background-color: transparent; /* optional */
+}
+
+
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 3.5em;
+    }
+    .hero-content p {
+        font-size: 1.1em;
+    }
+    .grid-2-col {
+        gap: 30px;
+    }
+    /* Removed .timeline-item styling as it's replaced */
+
+    /* Project items stack vertically on tablets and smaller */
+    .project-item {
+        flex-direction: column !important; /* Forces stacking: image on top, text below */
+    }
+
+    .project-item .project-image img {
+        border-radius: 8px 8px 0 0; /* Rounded top corners for all stacked projects */
+    }
+
+    .project-info {
+        padding: 20px; /* Adjust padding for smaller screens */
+        text-align: center; /* Center text within project info */
+    }
+    .project-link {
+        justify-content: center; /* Center the project link */
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        height: auto; /* Allow header to adjust height */
+        padding: 10px 0; /* Add some vertical padding */
+    }
+    .header-content {
+        flex-direction: column; /* Stack logo/alert and nav icons */
+        align-items: flex-start;
+        height: auto;
+    }
+    .logo-and-alert {
+        width: 100%;
+        justify-content: space-between; /* Space out logo and alert */
+        margin-bottom: 10px;
+        padding-right: 20px; /* Add padding to align with container */
+    }
+    .logo {
+        padding: 0; /* Remove extra padding */
+    }
+    .alert-message {
+        margin-left: 0;
+        text-align: right;
+        flex-grow: 1; /* Allow it to take available space */
+    }
+    .main-nav {
+        width: 100%;
+        height: auto;
+        justify-content: flex-end; /* Push buttons to the right */
+    }
+    .nav-icons {
+        width: 100%;
+        justify-content: flex-end; /* Push buttons to the right */
+        height: auto;
+    }
+    .nav-icons button {
+        height: 50px; /* Give buttons a consistent height */
+        padding: 0 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .grid-2-col {
+        grid-template-columns: 1fr; /* Stack content blocks */
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr; /* Stack footer sections */
+        text-align: center;
+    }
+    .footer-section ul {
+        padding-left: 0;
+    }
+    .footer-section ul li {
+        display: inline-block; /* Make footer links inline */
+        margin: 0 10px 10px;
+    }
+    .copyright-social {
+        flex-direction: column;
+        text-align: center;
+    }
+    .social-links {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 100px 15px;
+    }
+    .hero-content h1 {
+        font-size: 2em;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .mobile-menu {
+        width: 85%;
+    }
+    /* Removed .timeline-item styling as it's replaced */
+}
